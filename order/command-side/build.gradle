@@ -1,0 +1,18 @@
+jib.to.image = "dhowlathbasha/oddemo-order-${project.name}"
+
+dependencies {
+    implementation project(":common")
+    implementation project(":event")
+    implementation project(":client")
+    implementation project(":observation")
+    implementation project(":modules:idempotency")
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.kafka:spring-kafka'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}

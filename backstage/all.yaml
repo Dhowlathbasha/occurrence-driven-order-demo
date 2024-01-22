@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: occurrence-driven-demo-all
+  description: A collection of all Backstage entities
+spec:
+  targets:
+    - ./all-apis.yaml
+    - ./all-components.yaml
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: occurrence-driven-demo
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+    github.com/project-slug: Dhowlathbasha/occurrence-driven-order-demo
+spec:
+  owner: guests

@@ -1,0 +1,12 @@
+server:
+  port: 9081
+
+spring:
+  application:
+    name: command-side-payment
+  profiles:
+    include:
+      - observe
+      - cluster
+      - kafka
+      - kafka-producer

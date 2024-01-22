@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: shipment-query
+  description: query side of order aggregate
+  annotations:
+    backstage.io/source-location: url:https://github.com/Dhowlathbasha/occurrence-driven-order-demo
+  links:
+    - url: https://github.com/Dhowlathbasha/occurrence-driven-order-demo/tree/master/shipment/query-side
+      title: Server Root
+      icon: github
+spec:
+  type: service
+  lifecycle: experimental
+  system: occurrence-driven-demo
+  owner: guest
+  providesApis:
+    - shipment-query

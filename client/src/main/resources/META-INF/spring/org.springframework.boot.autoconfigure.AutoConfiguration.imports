@@ -1,0 +1,2 @@
+org.example.occurrence.driven.order.demo.client.order.config.OrderQueryClientConfig
+org.example.occurrence.driven.order.demo.client.order.config.OrderCommandClientConfig

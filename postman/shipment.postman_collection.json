@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "a20cc947-6c02-469b-ad15-48af26fa1f00",
+		"name": "shipment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27249891",
+		"_collection_link": "https://interstellar-trinity-80703.postman.co/workspace/E2E-test-for-occurrence-driven-ord~92a21858-fc8b-47ab-8394-2fe44de1eec9/collection/27249891-a20cc947-6c02-469b-ad15-48af26fa1f00?action=share&source=collection_link&creator=27249891"
+	},
+	"item": [
+		{
+			"name": "Create Shipment success",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.collectionVariables.set(\"returnId\", pm.response.json().id);",
+							"setTimeout(function(){}, 3000);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"{{shipmentId}}\",\n  \"shipmentMethod\": \"HOME_DELIVERY\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{{commandPort}}/api/v1/shipments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{commandPort}}",
+					"path": [
+						"api",
+						"v1",
+						"shipments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query Shipment Not Found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/hal+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:{{queryPort}}/api/v1-shipments/{{wrongPaymentId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{queryPort}}",
+					"path": [
+						"api",
+						"v1-shipments",
+						"{{wrongPaymentId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query Payment success",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/hal+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:{{queryPort}}/api/v1-shipments/{{shipmentId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{queryPort}}",
+					"path": [
+						"api",
+						"v1-shipments",
+						"{{shipmentId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "shipmentId",
+			"value": "1111",
+			"type": "string"
+		},
+		{
+			"key": "wrongShipmentId",
+			"value": "2222",
+			"type": "string"
+		},
+		{
+			"key": "commandPort",
+			"value": "10081",
+			"type": "string"
+		},
+		{
+			"key": "queryPort",
+			"value": "10083",
+			"type": "string"
+		},
+		{
+			"key": "returnId",
+			"value": ""
+		}
+	]
+}
