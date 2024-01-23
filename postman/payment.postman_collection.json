@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "f94613de-6210-42a8-b99b-696affd4b812",
+		"_postman_id": "836ef820-0cef-49c0-9532-2e8d3a3a013c",
 		"name": "payment",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "27249891",
-		"_collection_link": "https://interstellar-trinity-80703.postman.co/workspace/E2E-test-for-occurrence-driven-ord~92a21858-fc8b-47ab-8394-2fe44de1eec9/collection/27249891-f94613de-6210-42a8-b99b-696affd4b812?action=share&source=collection_link&creator=27249891"
+		"_collection_link": "https://www.postman.com/dhowlathbasha/workspace/backstage-demo-data/collection/3553548-836ef820-0cef-49c0-9532-2e8d3a3a013c"
 	},
 	"item": [
 		{
